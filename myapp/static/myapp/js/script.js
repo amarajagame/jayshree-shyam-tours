@@ -674,3 +674,37 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   } // end init()
 })();
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const faqItems = document.querySelectorAll(".faq-item");
+
+    faqItems.forEach(function (item) {
+
+        const question = item.querySelector(".faq-question");
+        const answer = item.querySelector(".faq-answer");
+
+        question.addEventListener("click", function () {
+
+            const isActive = item.classList.contains("active");
+
+            // Sabse pehle saare FAQ items close karo
+            faqItems.forEach(function (otherItem) {
+                otherItem.classList.remove("active");
+                const otherAnswer = otherItem.querySelector(".faq-answer");
+                otherAnswer.style.maxHeight = null;
+            });
+
+            // Agar clicked item pehle se active nahi tha, to usko open karo
+            if (!isActive) {
+                item.classList.add("active");
+                answer.style.maxHeight = answer.scrollHeight + "px";
+            }
+
+        });
+
+    });
+
+});

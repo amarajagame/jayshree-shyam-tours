@@ -494,12 +494,10 @@
     <p class="section-desc">
       Fill the form below and send your booking details directly on WhatsApp.
     </p>
-<form method="POST" action="{% url 'booking_whatsapp' %}" class="booking-form">
+<form method="POST" action="{% url 'index_booking_whatsapp' %}" class="booking-form">
 
     {% csrf_token %}
 
-<form method="POST" action="{% url 'booking_whatsapp' %}" class="booking-form">
-    {% csrf_token %}
 
     <!-- Yahan se mera diya hua code paste karo -->
 
@@ -531,9 +529,9 @@
         <input type="number" name="passengers" placeholder="Number of Passengers" required>
     </div>
 
-    <div class="form-group">
+   <div class="form-group">
         <input type="text" name="route" placeholder="Route / Destination" required>
-    </div>
+    </div> 
 
     <div class="form-group">
         <textarea name="message" placeholder="Your Message" rows="4"></textarea>
@@ -547,7 +545,178 @@
 </form>
 </div>
 </section>
+<section class="faq-section" id="faq">
 
+    <div class="faq-container">
+
+        <div class="faq-heading">
+
+            <h2>
+                Frequently Asked Questions
+            </h2>
+
+            <p>
+                Everything you need to know about
+                booking your journey with us.
+            </p>
+
+        </div>
+
+
+        <div class="faq-list">
+
+            <div class="faq-item">
+
+                <button
+                    class="faq-question"
+                    type="button"
+                >
+
+                    <span>
+                        What is included in the tour package?
+                    </span>
+
+                    <span class="faq-icon">
+                        +
+                    </span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        Our tour packages can include comfortable
+                        transportation and journey support depending
+                        on the selected trip. Contact our team for
+                        complete package details.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <button
+                    class="faq-question"
+                    type="button"
+                >
+
+                    <span>
+                        How can I book a tour?
+                    </span>
+
+                    <span class="faq-icon">
+                        +
+                    </span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        Click on the Book Now button, fill in your
+                        travel details and submit the booking form.
+                        Our team will contact you shortly.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <button
+                    class="faq-question"
+                    type="button"
+                >
+
+                    <span>
+                        Can I book a one-way trip?
+                    </span>
+
+                    <span class="faq-icon">
+                        +
+                    </span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        Yes, we provide both one-way and round-trip
+                        travel options.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <button
+                    class="faq-question"
+                    type="button"
+                >
+
+                    <span>
+                        Do you provide airport pickup and drop?
+                    </span>
+
+                    <span class="faq-icon">
+                        +
+                    </span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        Yes, airport pickup and drop services are
+                        available for convenient and comfortable travel.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <button
+                    class="faq-question"
+                    type="button"
+                >
+
+                    <span>
+                        How can I contact your team?
+                    </span>
+
+                    <span class="faq-icon">
+                        +
+                    </span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        You can contact Jayshree Shyam Tours & Travels
+                        using the contact details provided on the website.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">

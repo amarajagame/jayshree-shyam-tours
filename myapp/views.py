@@ -6,6 +6,7 @@ from .models import Booking
 from django.http import JsonResponse
 from django.shortcuts import redirect
 from urllib.parse import quote
+from .models import IndexBooking
 
 
 
@@ -23,10 +24,129 @@ def whatsapp_chat(request):
 
 
 
+# =====================================================
+# INDEX PAGE BOOKING
+# =====================================================
+
+def index_booking_whatsapp(request):
+
+    if request.method == "POST":
+
+        # =========================
+        # GET FORM DATA
+        # =========================
+
+        full_name = request.POST.get("full_name")
+        phone = request.POST.get("phone")
+        booking_date = request.POST.get("booking_date")
+        pickup = request.POST.get("pickup")
+        destination = request.POST.get("destination")
+        trip_type = request.POST.get("trip_type")
+        passengers = request.POST.get("passengers")
+        route = request.POST.get("route")
+        message = request.POST.get("message")
 
 
-# Booking model ka import already hai to dobara mat karo
-# from .models import Booking
+        # =========================
+        # SAVE IN INDEX BOOKING TABLE
+        # =========================
+
+        IndexBooking.objects.create(
+
+            full_name=full_name,
+
+            phone=phone,
+
+            pickup=pickup,
+
+            destination=destination,
+
+            booking_date=booking_date,
+
+            trip_type=trip_type,
+
+            passengers=passengers,
+
+            route=route,
+
+            message=message,
+
+        )
+
+
+        # =========================
+        # WHATSAPP MESSAGE
+        # =========================
+
+        whatsapp_message = f"""
+*NEW BOOKING*
+
+━━━━━━━━━━━━━━━━━━
+*Customer Details*
+━━━━━━━━━━━━━━━━━━
+
+Name: {full_name}
+Phone: {phone}
+
+Travel Date: {booking_date}
+Passengers: {passengers}
+
+Trip Type: {trip_type}
+
+Pickup Location:
+{pickup}
+
+Destination:
+{destination}
+
+Route:
+{route}
+
+Additional Message:
+{message if message else "None"}
+
+━━━━━━━━━━━━━━━━━━
+
+Jayshree Shyam Tours & Travels
+"""
+
+
+        # =========================
+        # OWNER WHATSAPP NUMBER
+        # =========================
+
+        whatsapp_number = "918767099642"
+
+
+        # =========================
+        # CREATE WHATSAPP URL
+        # =========================
+
+        whatsapp_url = (
+            f"https://wa.me/{whatsapp_number}"
+            f"?text={quote(whatsapp_message)}"
+        )
+
+
+        # =========================
+        # SEND WHATSAPP URL
+        # =========================
+
+        return redirect(whatsapp_url)
+
+
+    # =========================
+    # IF NOT POST
+    # =========================
+
+    return redirect("home")
+
+
+# =====================================================
+# PAMPHLET BOOKING
+# =====================================================
+
+
 
 
 def booking_whatsapp(request):

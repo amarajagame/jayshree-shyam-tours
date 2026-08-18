@@ -1,95 +1,114 @@
- * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+/* =====================================================
+   GLOBAL RESET
+===================================================== */
 
-        html {
-            scroll-behavior: smooth;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #071a2d;
-            color: #ffffff;
-        }
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #071a2d;
+    color: #ffffff;
+}
 
 
-        /* =====================================================
-           NAVBAR
-        ===================================================== */
+/* =====================================================
+   NAVBAR
+===================================================== */
 
-        .pamphlet-navbar {
-            width: 100%;
-            background: #071a2d;
-            border-bottom: 1px solid rgba(255,255,255,0.12);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+.pamphlet-navbar {
+    width: 100%;
+    background: #071a2d;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
 
-        .navbar-inner {
-            width: min(1200px, 92%);
-            min-height: 75px;
-            margin: auto;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-        }
+.navbar-inner {
+    width: min(1200px, 92%);
+    min-height: 75px;
+    margin: auto;
 
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 18px;
-        }
+    gap: 20px;
+}
 
-        .brand-icon {
-            width: 43px;
-            height: 43px;
+.brand {
+    display: flex;
+    align-items: center;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+    gap: 12px;
 
-            border-radius: 50%;
-            background: #d4af37;
+    color: #ffffff;
+    text-decoration: none;
 
-            font-size: 21px;
-        }
+    font-weight: 700;
+    font-size: 18px;
+}
 
-        .back-btn {
-            text-decoration: none;
+.brand-icon {
+    width: 43px;
+    height: 43px;
 
-            background: #d4af37;
-            color: #071a2d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-            padding: 11px 20px;
-            border-radius: 5px;
+    border-radius: 50%;
 
-            font-weight: 700;
+    background: #d4af37;
 
-            transition: 0.3s ease;
-        }
+    font-size: 21px;
+}
 
-        .back-btn:hover {
-            background: #f0cf63;
-            transform: translateY(-2px);
-        }
+.back-btn {
+    text-decoration: none;
+
+    background: #d4af37;
+    color: #071a2d;
+
+    padding: 11px 20px;
+
+    border-radius: 5px;
+
+    font-weight: 700;
+
+    transition: 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #f0cf63;
+
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   BOOK NOW BUTTON
+===================================================== */
+
 .book-now-btn {
     width: 100%;
+
     padding: 13px 20px;
 
     border: none;
     border-radius: 12px;
 
     background: #d4af37;
+
     color: #071a2d;
 
     font-weight: 700;
@@ -105,6 +124,7 @@
 
 .book-now-btn:hover {
     background: #ffffff;
+
     color: #071a2d;
 
     transform: translateY(-2px);
@@ -113,612 +133,1346 @@
         0 12px 25px rgba(255, 178, 26, 0.25);
 }
 
-        /* =====================================================
-           HEADER
-        ===================================================== */
 
-        .page-header {
-            width: min(1150px, 92%);
-            margin: auto;
-
-            padding: 65px 0 35px;
-        }
-
-        .page-header .small-title {
-            color: #d4af37;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 2px;
-        }
-
-        .page-header h1 {
-            margin-top: 12px;
-
-            font-family: Georgia, serif;
-            font-size: clamp(35px, 5vw, 55px);
-            font-weight: 400;
-        }
-
-        .page-header h1 span {
-            color: #d4af37;
-        }
-
-        .page-header p {
-            margin-top: 12px;
-
-            color: #b7c1ca;
-            font-size: 16px;
-        }
-
-
-        /* =====================================================
-           TOUR LIST
-        ===================================================== */
-
-        .tour-list {
-            width: min(1150px, 92%);
-            margin: auto;
-
-            border-top: 1px solid rgba(255,255,255,0.18);
-        }
-
-
-        /* =====================================================
-           TOUR ROW
-        ===================================================== */
-
-        .tour-row {
-            min-height: 165px;
-
-            display: grid;
-
-            grid-template-columns:
-                100px
-                minmax(300px, 1fr)
-                150px
-                155px;
-
-            align-items: center;
-
-            gap: 25px;
-
-            padding: 25px 0;
-
-            border-bottom: 1px solid rgba(255,255,255,0.18);
-
-            transition: 0.3s ease;
-        }
-
-        .tour-row:hover {
-            background: rgba(212,175,55,0.035);
-        }
-
-
-        /* =====================================================
-           IMAGE
-        ===================================================== */
-
-        .tour-image {
-            width: 85px;
-            height: 105px;
-
-            border-radius: 5px;
-
-            overflow: hidden;
-
-            background: #0d263d;
-
-            border: 1px solid rgba(212,175,55,0.45);
-        }
-
-        .tour-image img {
-            width: 100%;
-            height: 100%;
-
-            display: block;
-
-            object-fit: contain;
-
-            background: #0d263d;
-
-            transition: 0.4s ease;
-        }
-
-        .tour-row:hover .tour-image img {
-            transform: scale(1.05);
-        }
-
-
-        /* =====================================================
-           TOUR INFORMATION
-        ===================================================== */
-
-        .tour-info h2 {
-            font-family: Georgia, "Times New Roman", serif;
-
-            font-size: 25px;
-            font-weight: 400;
-
-            color: #ffffff;
-
-            margin-bottom: 10px;
-        }
-
-        .tour-info p {
-            color: #b7c1ca;
-
-            font-size: 15px;
-
-            line-height: 1.7;
-
-            max-width: 600px;
-        }
-
-
-        /* =====================================================
-           DURATION + PRICE
-        ===================================================== */
-
-        .tour-price {
-            display: flex;
-            flex-direction: column;
-
-            gap: 8px;
-        }
-
-        .tour-duration {
-            color: #d4af37;
-            font-size: 14px;
-        }
-
-        .price {
-            color: #ffffff;
-            font-size: 17px;
-            font-weight: 600;
-        }
-
-
-        /* =====================================================
-           BOOK NOW
-        ===================================================== */
-
-        .book-btn {
-            display: inline-flex;
-
-            align-items: center;
-            justify-content: center;
-
-            min-width: 145px;
-
-            padding: 13px 20px;
-
-            background: #d4af37;
-            color: #071a2d;
-
-            text-decoration: none;
-
-            font-size: 15px;
-            font-weight: 700;
-
-            border-radius: 3px;
-
-            transition: 0.3s ease;
-        }
-
-        .book-btn:hover {
-            background: #f0cf63;
-
-            transform: translateY(-2px);
-
-            box-shadow: 0 8px 20px rgba(212,175,55,0.20);
-        }
-
-
-        /* =====================================================
-           FOOTER
-        ===================================================== */
-
-        .footer {
-            margin-top: 80px;
-
-            padding: 45px 20px;
-
-            text-align: center;
-
-            background: #051321;
-
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .footer h3 {
-            font-family: Georgia, serif;
-
-            font-size: 22px;
-            font-weight: 400;
-        }
-
-        .footer p {
-            margin-top: 8px;
-
-            color: #d4af37;
-        }
-
-        .footer-phone {
-            margin-top: 15px;
-
-            color: #ffffff;
-            font-weight: 600;
-        }
-
-        .footer a {
-            display: inline-block;
-
-            margin-top: 20px;
-
-            color: #d4af37;
-
-            text-decoration: none;
-        }
-
-
-        /* =====================================================
-           TABLET
-        ===================================================== */
-
-        @media (max-width: 900px) {
-
-            .tour-row {
-                grid-template-columns:
-                    90px
-                    1fr
-                    120px
-                    130px;
-
-                gap: 18px;
-            }
-
-            .tour-info h2 {
-                font-size: 21px;
-            }
-
-            .tour-info p {
-                font-size: 14px;
-            }
-
-            .book-btn {
-                min-width: 120px;
-                padding: 11px 12px;
-            }
-
-        }
-
-
-        /* =====================================================
-           MOBILE
-        ===================================================== */
-
-        @media (max-width: 650px) {
-
-            .navbar-inner {
-                min-height: 65px;
-            }
-
-            .brand {
-                font-size: 13px;
-            }
-
-            .brand-icon {
-                width: 36px;
-                height: 36px;
-                font-size: 18px;
-            }
-
-            .back-btn {
-                padding: 8px 11px;
-                font-size: 12px;
-            }
-
-
-            .page-header {
-                padding: 45px 0 30px;
-            }
-
-            .page-header h1 {
-                font-size: 36px;
-            }
-
-            .page-header p {
-                font-size: 14px;
-            }
-
-
-            /* Mobile row */
-
-            .tour-row {
-                grid-template-columns: 75px 1fr;
-
-                gap: 15px;
-
-                padding: 25px 0;
-            }
-
-
-            .tour-image {
-                width: 70px;
-                height: 90px;
-            }
-
-
-            .tour-info h2 {
-                font-size: 19px;
-                line-height: 1.35;
-            }
-
-            .tour-info p {
-                font-size: 13px;
-                line-height: 1.5;
-            }
-
-
-            .tour-price {
-                grid-column: 2;
-
-                flex-direction: row;
-
-                align-items: center;
-
-                justify-content: space-between;
-            }
-
-
-            .tour-duration {
-                font-size: 13px;
-            }
-
-            .price {
-                font-size: 15px;
-            }
-
-
-            .book-btn {
-                grid-column: 2;
-
-                width: 100%;
-
-                padding: 12px;
-            }
-
-        }
-
-
-        /* =====================================================
-           VERY SMALL MOBILE
-        ===================================================== */
-
-        @media (max-width: 400px) {
-
-            .brand-name {
-                max-width: 125px;
-                line-height: 1.2;
-            }
-
-            .back-btn {
-                font-size: 11px;
-                padding: 7px 9px;
-            }
-
-            .tour-info h2 {
-                font-size: 17px;
-            }
-
-        }
-
-        /* =========================================================
-   BOOKING POPUP
-   ========================================================= */
-/* ================= BOOKING POPUP ================= */
 /* =====================================================
-   BOOKING SUCCESS POPUP
-=/* =====================================================
-   BOOKING SUCCESS POPUP
-   WHITE BACKGROUND + BLACK TEXT
+   PAGE HEADER
 ===================================================== */
- * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Segoe UI', Arial, sans-serif;
+
+.page-header {
+    width: min(1150px, 92%);
+
+    margin: auto;
+
+    padding: 65px 0 35px;
+}
+
+.page-header .small-title {
+    color: #d4af37;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.page-header h1 {
+    margin-top: 12px;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(35px, 5vw, 55px);
+
+    font-weight: 400;
+}
+
+.page-header h1 span {
+    color: #d4af37;
+}
+
+.page-header p {
+    margin-top: 12px;
+
+    color: #b7c1ca;
+
+    font-size: 16px;
+}
+
+
+/* =====================================================
+   TOUR LIST
+===================================================== */
+
+.tour-list {
+    width: min(1150px, 92%);
+
+    margin: auto;
+
+    border-top:
+        1px solid rgba(255,255,255,0.18);
+}
+
+
+/* =====================================================
+   TOUR ROW
+===================================================== */
+
+.tour-row {
+    min-height: 165px;
+
+    display: grid;
+
+    grid-template-columns:
+        100px
+        minmax(300px, 1fr)
+        150px
+        155px;
+
+    align-items: center;
+
+    gap: 25px;
+
+    padding: 25px 0;
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.18);
+
+    transition: 0.3s ease;
+}
+
+.tour-row:hover {
+    background:
+        rgba(212,175,55,0.035);
+}
+
+
+/* =====================================================
+   TOUR IMAGE
+===================================================== */
+
+.tour-image {
+    width: 85px;
+    height: 105px;
+
+    border-radius: 5px;
+
+    overflow: hidden;
+
+    background: #0d263d;
+
+    border:
+        1px solid rgba(212,175,55,0.45);
+}
+
+.tour-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: contain;
+
+    background: #0d263d;
+
+    transition: 0.4s ease;
+}
+
+.tour-row:hover .tour-image img {
+    transform: scale(1.05);
+}
+
+
+/* =====================================================
+   TOUR INFORMATION
+===================================================== */
+
+.tour-info h2 {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 25px;
+
+    font-weight: 400;
+
+    color: #ffffff;
+
+    margin-bottom: 10px;
+}
+
+.tour-info p {
+    color: #b7c1ca;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    max-width: 600px;
+}
+
+
+/* =====================================================
+   DURATION + PRICE
+===================================================== */
+
+.tour-price {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.tour-duration {
+    color: #d4af37;
+
+    font-size: 14px;
+}
+
+.price {
+    color: #ffffff;
+
+    font-size: 17px;
+
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   BOOK BUTTON
+===================================================== */
+
+.book-btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 145px;
+
+    padding: 13px 20px;
+
+    background: #d4af37;
+
+    color: #071a2d;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    border-radius: 3px;
+
+    transition: 0.3s ease;
+}
+
+.book-btn:hover {
+    background: #f0cf63;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(212,175,55,0.20);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+    margin-top: 80px;
+
+    padding: 45px 20px;
+
+    text-align: center;
+
+    background: #051321;
+
+    border-top:
+        1px solid rgba(255,255,255,0.1);
+}
+
+.footer h3 {
+    font-family: Georgia, serif;
+
+    font-size: 22px;
+
+    font-weight: 400;
+}
+
+.footer p {
+    margin-top: 8px;
+
+    color: #d4af37;
+}
+
+.footer-phone {
+    margin-top: 15px;
+
+    color: #ffffff;
+
+    font-weight: 600;
+}
+
+.footer a {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    color: #d4af37;
+
+    text-decoration: none;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .tour-row {
+        grid-template-columns:
+            90px
+            1fr
+            120px
+            130px;
+
+        gap: 18px;
     }
- 
-    body {
-        background: #f4f5f7;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+
+    .tour-info h2 {
+        font-size: 21px;
     }
- 
-    /* ===== Demo trigger button ===== */
-    .demo-trigger-btn {
-        padding: 14px 30px;
-        background: linear-gradient(135deg, #16a34a, #15803d);
-        color: #fff;
-        border: none;
-        border-radius: 8px;
-        font-size: 16px;
-        font-weight: 600;
-        cursor: pointer;
-        box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+
+    .tour-info p {
+        font-size: 14px;
     }
-    .demo-trigger-btn:hover {
-        transform: translateY(-2px);
+
+    .book-btn {
+        min-width: 120px;
+
+        padding: 11px 12px;
     }
- 
-    /* ===== Overlay Background ===== */
-    .booking-overlay {
-        display: none;
-        align-items: center;
-        justify-content: center;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.55);
-        backdrop-filter: blur(3px);
-        z-index: 9999;
-        animation: fadeIn 0.3s ease;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+
+    .navbar-inner {
+        min-height: 65px;
     }
- 
-    .booking-overlay.show {
-        display: flex;
+
+    .brand {
+        font-size: 13px;
     }
- 
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
+
+    .brand-icon {
+        width: 36px;
+        height: 36px;
+
+        font-size: 18px;
     }
- 
-    /* ===== Modal Box ===== */
-    .booking-modal {
-        background: #ffffff;
-        border-radius: 18px;
-        max-width: 420px;
-        width: 90%;
-        padding: 36px 28px 30px;
-        text-align: center;
-        position: relative;
-        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
-        animation: popIn 0.35s ease;
-    }
- 
-    @keyframes popIn {
-        0% {
-            opacity: 0;
-            transform: scale(0.9) translateY(15px);
-        }
-        100% {
-            opacity: 1;
-            transform: scale(1) translateY(0);
-        }
-    }
- 
-    /* ===== Close Button ===== */
-    .close-booking {
-        position: absolute;
-        top: 14px;
-        right: 16px;
-        background: transparent;
-        border: none;
-        font-size: 26px;
-        line-height: 1;
-        color: #888;
-        cursor: pointer;
-        transition: color 0.2s ease, transform 0.2s ease;
-    }
- 
-    .close-booking:hover {
-        color: #d97706;
-        transform: rotate(90deg);
-    }
- 
-    /* ===== Success Icon ===== */
-    .success-icon {
-        width: 70px;
-        height: 70px;
-        margin: 0 auto 18px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: linear-gradient(135deg, #16a34a, #15803d);
-        color: #ffffff;
-        font-size: 36px;
-        font-weight: bold;
-        border-radius: 50%;
-        box-shadow: 0 6px 16px rgba(22, 163, 74, 0.35);
-        animation: iconPop 0.5s ease 0.15s backwards;
-    }
- 
-    @keyframes iconPop {
-        0% {
-            opacity: 0;
-            transform: scale(0.5);
-        }
-        100% {
-            opacity: 1;
-            transform: scale(1);
-        }
-    }
- 
-    /* ===== Header / Text Content ===== */
-    .booking-header {
-        text-align: center;
-    }
- 
-    .booking-tag {
-        display: inline-block;
-        background: #dcfce7;
-        color: #16a34a;
+
+    .back-btn {
+        padding: 8px 11px;
+
         font-size: 12px;
-        font-weight: 700;
-        letter-spacing: 0.5px;
-        padding: 6px 14px;
-        border-radius: 20px;
+    }
+
+    .page-header {
+        padding: 45px 0 30px;
+    }
+
+    .page-header h1 {
+        font-size: 36px;
+    }
+
+    .page-header p {
+        font-size: 14px;
+    }
+
+
+    /* MOBILE TOUR ROW */
+
+    .tour-row {
+        grid-template-columns:
+            75px 1fr;
+
+        gap: 15px;
+
+        padding: 25px 0;
+    }
+
+    .tour-image {
+        width: 70px;
+        height: 90px;
+    }
+
+    .tour-info h2 {
+        font-size: 19px;
+
+        line-height: 1.35;
+    }
+
+    .tour-info p {
+        font-size: 13px;
+
+        line-height: 1.5;
+    }
+
+    .tour-price {
+        grid-column: 2;
+
+        flex-direction: row;
+
+        align-items: center;
+
+        justify-content: space-between;
+    }
+
+    .tour-duration {
+        font-size: 13px;
+    }
+
+    .price {
+        font-size: 15px;
+    }
+
+    .book-btn {
+        grid-column: 2;
+
+        width: 100%;
+
+        padding: 12px;
+    }
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media (max-width: 400px) {
+
+    .brand-name {
+        max-width: 125px;
+
+        line-height: 1.2;
+    }
+
+    .back-btn {
+        font-size: 11px;
+
+        padding: 7px 9px;
+    }
+
+    .tour-info h2 {
+        font-size: 17px;
+    }
+}
+
+
+/* =====================================================
+   =====================================================
+   BOOKING POPUP
+   =====================================================
+   ===================================================== */
+
+
+/* =====================================================
+   BOOKING OVERLAY
+===================================================== */
+
+.booking-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        rgba(0, 0, 0, 0.55);
+
+    backdrop-filter: blur(3px);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 99999;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+
+    overflow-y: auto;
+}
+
+
+/* =====================================================
+   OPEN POPUP
+===================================================== */
+
+.booking-overlay.active {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* =====================================================
+   BOOKING MODAL
+===================================================== */
+
+.booking-overlay .booking-modal {
+    position: relative;
+
+    width: 100%;
+
+    max-width: 550px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #ffffff;
+
+    color: #111111;
+
+    border-radius: 18px;
+
+    padding: 40px 30px 30px;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0, 0, 0, 0.30);
+
+    transform:
+        translateY(20px)
+        scale(0.96);
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+/* =====================================================
+   MODAL ANIMATION
+===================================================== */
+
+.booking-overlay.active .booking-modal {
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* =====================================================
+   BOOKING CLOSE BUTTON
+===================================================== */
+
+.booking-overlay .close-booking {
+    position: absolute;
+
+    top: 14px;
+    right: 14px;
+
+    width: 40px;
+    height: 40px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f1f5f9;
+
+    color: #1f2937;
+
+    font-size: 24px;
+
+    line-height: 40px;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.booking-overlay .close-booking:hover {
+    background: #e2e8f0;
+
+    transform: rotate(90deg);
+}
+
+
+/* =====================================================
+   BOOKING HEADER
+===================================================== */
+
+.booking-overlay .booking-header {
+    width: 100%;
+
+    text-align: center;
+
+    color: #111111;
+}
+
+.booking-overlay .booking-header h2 {
+    margin: 0 0 18px;
+
+    color: #222222 !important;
+
+    font-size: 30px;
+
+    font-weight: 700;
+
+    line-height: 1.3;
+}
+
+.booking-overlay .booking-header p {
+    margin: 0 auto 12px;
+
+    max-width: 450px;
+
+    color: #333333 !important;
+
+    font-size: 16px;
+
+    font-weight: 400;
+
+    line-height: 1.6;
+
+    text-align: center;
+}
+
+.booking-overlay .booking-header strong {
+    color: #111111 !important;
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   BOOKING TAG
+===================================================== */
+
+.booking-overlay .booking-tag {
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+
+    color: #16a34a !important;
+
+    text-transform: uppercase;
+}
+
+
+/* =====================================================
+   SELECTED TOUR
+===================================================== */
+
+.booking-overlay .selected-tour-info {
+    background: #f8fafc;
+
+    border:
+        1px solid #e5e7eb;
+
+    border-radius: 12px;
+
+    padding: 18px;
+
+    margin-bottom: 22px;
+
+    color: #111111;
+}
+
+.booking-overlay .selected-tour-info h3 {
+    margin: 0 0 8px;
+
+    color: #111111 !important;
+
+    font-size: 19px;
+
+    font-weight: 700;
+}
+
+.booking-overlay .selected-tour-details {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+.booking-overlay #selectedTourDuration {
+    color: #555555 !important;
+
+    font-size: 14px;
+}
+
+.booking-overlay #selectedTourPrice {
+    color: #111111 !important;
+
+    font-size: 17px;
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.booking-overlay #bookingForm {
+    width: 100%;
+}
+
+.booking-overlay .form-group {
+    margin-bottom: 18px;
+
+    text-align: left;
+}
+
+.booking-overlay .form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #111111 !important;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+.booking-overlay .form-group input,
+.booking-overlay .form-group select,
+.booking-overlay .form-group textarea {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    box-sizing: border-box;
+
+    border:
+        1px solid #d1d5db;
+
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    color: #111111 !important;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.booking-overlay .form-group input:focus,
+.booking-overlay .form-group select:focus,
+.booking-overlay .form-group textarea:focus {
+    border-color: #d4af37;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(212,175,55,0.15);
+}
+
+.booking-overlay .form-group textarea {
+    resize: vertical;
+
+    min-height: 85px;
+}
+
+.booking-overlay .form-group input::placeholder,
+.booking-overlay .form-group textarea::placeholder {
+    color: #9ca3af;
+}
+
+
+/* =====================================================
+   FORM ROW
+===================================================== */
+
+.booking-overlay .form-row {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 15px;
+}
+
+
+/* =====================================================
+   CONFIRM BOOKING BUTTON
+===================================================== */
+
+.booking-overlay .confirm-booking-btn {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    min-height: 48px;
+
+    margin-top: 10px;
+
+    padding: 13px 20px;
+
+    box-sizing: border-box;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #ffb21c;
+
+    color: #111111 !important;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.booking-overlay .confirm-booking-btn:hover {
+    background: #f59e0b;
+
+    color: #111111 !important;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(245,158,11,0.25);
+}
+
+
+/* =====================================================
+   SUCCESS POPUP
+===================================================== */
+
+#bookingSuccessPopup {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        rgba(0, 0, 0, 0.55);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 100000;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   SHOW SUCCESS POPUP
+===================================================== */
+
+#bookingSuccessPopup.active {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* =====================================================
+   SUCCESS MODAL
+===================================================== */
+
+#bookingSuccessPopup .success-modal {
+    position: relative;
+
+    width: 100%;
+
+    max-width: 550px;
+
+    background: #ffffff !important;
+
+    color: #000000 !important;
+
+    border-radius: 18px;
+
+    padding: 45px 30px 30px;
+
+    text-align: center;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0, 0, 0, 0.25);
+
+    transform:
+        translateY(20px)
+        scale(0.96);
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+/* =====================================================
+   SUCCESS MODAL ANIMATION
+===================================================== */
+
+#bookingSuccessPopup.active .success-modal {
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* =====================================================
+   SUCCESS CLOSE BUTTON
+===================================================== */
+
+#bookingSuccessPopup .close-booking {
+    position: absolute;
+
+    top: 14px;
+    right: 14px;
+
+    width: 40px;
+    height: 40px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f1f5f9;
+
+    color: #111111 !important;
+
+    -webkit-text-fill-color:
+        #111111 !important;
+
+    font-size: 24px;
+
+    line-height: 40px;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+#bookingSuccessPopup .close-booking:hover {
+    background: #e2e8f0;
+
+    transform: rotate(90deg);
+}
+
+
+/* =====================================================
+   SUCCESS ICON
+===================================================== */
+
+#bookingSuccessPopup .success-icon {
+    width: 74px;
+    height: 74px;
+
+    margin: 0 auto 28px;
+
+    border-radius: 50%;
+
+    background: #22c55e !important;
+
+    color: #ffffff !important;
+
+    -webkit-text-fill-color:
+        #ffffff !important;
+
+    font-size: 52px;
+
+    font-weight: 700;
+
+    line-height: 74px;
+
+    text-align: center;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    box-shadow:
+        0 8px 25px
+        rgba(34,197,94,0.30);
+}
+
+
+/* =====================================================
+   SUCCESS HEADER
+===================================================== */
+
+#bookingSuccessPopup .booking-header {
+    width: 100%;
+
+    text-align: center;
+
+    color: #000000 !important;
+}
+
+#bookingSuccessPopup .booking-header,
+#bookingSuccessPopup .booking-header span,
+#bookingSuccessPopup .booking-header h2,
+#bookingSuccessPopup .booking-header p,
+#bookingSuccessPopup .booking-header strong {
+    color: #000000 !important;
+
+    -webkit-text-fill-color:
+        #000000 !important;
+
+    text-shadow: none !important;
+
+    opacity: 1 !important;
+
+    filter: none !important;
+}
+
+
+/* =====================================================
+   SUCCESS TAG
+===================================================== */
+
+#bookingSuccessPopup .booking-tag {
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+
+    color: #000000 !important;
+
+    -webkit-text-fill-color:
+        #000000 !important;
+
+    text-transform: uppercase;
+}
+
+
+/* =====================================================
+   SUCCESS HEADING
+===================================================== */
+
+#bookingSuccessPopup .booking-header h2 {
+    margin: 0 0 18px;
+
+    color: #000000 !important;
+
+    -webkit-text-fill-color:
+        #000000 !important;
+
+    font-size: 30px;
+
+    font-weight: 700;
+
+    line-height: 1.3;
+}
+
+
+/* =====================================================
+   SUCCESS MESSAGE
+===================================================== */
+
+#bookingSuccessPopup .booking-header p {
+    margin: 0 auto 12px;
+
+    max-width: 450px;
+
+    color: #000000 !important;
+
+    -webkit-text-fill-color:
+        #000000 !important;
+
+    font-size: 16px;
+
+    font-weight: 400;
+
+    line-height: 1.6;
+
+    text-align: center;
+}
+
+
+/* =====================================================
+   COMPANY NAME
+===================================================== */
+
+#bookingSuccessPopup .booking-header strong {
+    color: #000000 !important;
+
+    -webkit-text-fill-color:
+        #000000 !important;
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   SUCCESS BACK HOME BUTTON
+===================================================== */
+
+#bookingSuccessPopup .confirm-booking-btn {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    min-height: 48px;
+
+    margin-top: 30px;
+
+    padding: 13px 20px;
+
+    box-sizing: border-box;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #ffb21c;
+
+    color: #111111 !important;
+
+    -webkit-text-fill-color:
+        #111111 !important;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#bookingSuccessPopup .confirm-booking-btn:hover {
+    background: #f59e0b;
+
+    color: #111111 !important;
+
+    -webkit-text-fill-color:
+        #111111 !important;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(245,158,11,0.25);
+}
+
+
+/* =====================================================
+   MOBILE BOOKING POPUP
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .booking-overlay {
+        padding: 15px;
+    }
+
+    .booking-overlay .booking-modal {
+        max-width: 100%;
+
+        max-height: 92vh;
+
+        padding: 40px 20px 24px;
+
+        border-radius: 16px;
+    }
+
+    .booking-overlay .form-row {
+        grid-template-columns: 1fr;
+
+        gap: 0;
+    }
+
+    .booking-overlay .booking-header h2 {
+        font-size: 25px;
+    }
+
+    .booking-overlay .booking-header p {
+        font-size: 14px;
+    }
+
+    .booking-overlay .confirm-booking-btn {
+        min-height: 46px;
+
+        font-size: 15px;
+    }
+
+
+    /* SUCCESS */
+
+    #bookingSuccessPopup {
+        padding: 15px;
+    }
+
+    #bookingSuccessPopup .success-modal {
+        max-width: 100%;
+
+        padding: 40px 20px 24px;
+
+        border-radius: 16px;
+    }
+
+    #bookingSuccessPopup .success-icon {
+        width: 68px;
+        height: 68px;
+
+        font-size: 46px;
+
+        line-height: 68px;
+
+        margin-bottom: 22px;
+    }
+
+    #bookingSuccessPopup .booking-header h2 {
+        font-size: 25px;
+
         margin-bottom: 14px;
     }
- 
-    .booking-header h2 {
-        font-size: 23px;
-        font-weight: 700;
-        color: #1a1a1a;
-        margin: 0 0 12px;
+
+    #bookingSuccessPopup .booking-header p {
+        font-size: 14px;
+
+        line-height: 1.5;
     }
- 
-    .booking-header p {
-        font-size: 14.5px;
-        line-height: 1.6;
-        color: #555;
-        margin: 0 0 8px;
+
+    #bookingSuccessPopup .booking-tag {
+        font-size: 11px;
+
+        letter-spacing: 1px;
     }
- 
-    .booking-header strong {
-        color: #d97706;
-        font-weight: 700;
-    }
- 
-    /* ===== Back to Home Button ===== */
-    .confirm-booking-btn {
-        display: inline-block;
-        margin-top: 22px;
-        padding: 12px 34px;
-        background: linear-gradient(135deg, #16a34a, #15803d);
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: 600;
+
+    #bookingSuccessPopup .confirm-booking-btn {
+        margin-top: 24px;
+
+        min-height: 46px;
+
         font-size: 15px;
-        border-radius: 8px;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
     }
- 
-    .confirm-booking-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(22, 163, 74, 0.4);
-        color: #ffffff;
+
+    #bookingSuccessPopup .close-booking {
+        width: 36px;
+        height: 36px;
+
+        font-size: 21px;
+
+        line-height: 36px;
     }
- 
-    /* ===== Responsive ===== */
-    @media (max-width: 480px) {
-        .booking-modal {
-            padding: 28px 18px 24px;
-            width: 92%;
-        }
-        .booking-header h2 {
-            font-size: 19px;
-        }
-        .success-icon {
-            width: 60px;
-            height: 60px;
-            font-size: 30px;
-        }
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE SUCCESS
+===================================================== */
+
+@media (max-width: 380px) {
+
+    #bookingSuccessPopup {
+        padding: 10px;
     }
+
+    #bookingSuccessPopup .success-modal {
+        padding: 38px 16px 20px;
+
+        border-radius: 14px;
+    }
+
+    #bookingSuccessPopup .success-icon {
+        width: 60px;
+        height: 60px;
+
+        font-size: 40px;
+
+        line-height: 60px;
+    }
+
+    #bookingSuccessPopup .booking-header h2 {
+        font-size: 22px;
+    }
+
+    #bookingSuccessPopup .booking-header p {
+        font-size: 13px;
+    }
+}
