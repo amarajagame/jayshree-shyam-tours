@@ -17,7 +17,7 @@ def home(request):
 
 # view of whatsappp chat on index.html page of religous ,airpirt etc
 def whatsapp_chat(request):
-    phone = "8767099642"
+    phone = "9527825967"
     message = "Hi, I want to book a tour. Please share details."
     url = f"https://wa.me/{phone}?text={quote(message)}"
     return redirect(url)
@@ -115,7 +115,7 @@ Jayshree Shyam Tours & Travels
         # OWNER WHATSAPP NUMBER
         # =========================
 
-        whatsapp_number = "918767099642"
+        whatsapp_number = "9527825967"
 
 
         # =========================
@@ -256,7 +256,7 @@ Jayshree Shyam Tours & Travels
         # OWNER WHATSAPP NUMBER
         # =========================
 
-        whatsapp_number = "918767099642"
+        whatsapp_number = "919527825967"
 
         whatsapp_url = (
             f"https://wa.me/{whatsapp_number}"
