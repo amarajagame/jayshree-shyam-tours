@@ -16,6 +16,12 @@ urlpatterns = [
         name="booking_whatsapp"
     ),
     path('pamphlets/', views.pamphlets, name='pamphlets'),
+    path(
+        "mahabaleshwar/",
+        views.mahabaleshwar,
+        name="mahabaleshwar"
+    ),
+
      
    
 

@@ -21,6 +21,7 @@
      NAVBAR
 ===================================================== -->
 
+
 <nav class="pamphlet-navbar">
 
     <div class="navbar-inner">
@@ -38,15 +39,147 @@
         </a>
 
 
-        <a href="{% url 'home' %}" class="back-btn">
-            ← Back
-        </a>
+        <div class="navbar-actions">
+
+            <button
+                type="button"
+                class="famous-nav-btn"
+                onclick="openFamousPlaces()"
+            >
+                📍 Famous Places
+            </button>
+
+
+            <a
+                href="{% url 'home' %}"
+                class="back-btn"
+            >
+                ← Back
+            </a>
+
+        </div>
 
     </div>
 
 </nav>
 
+<!-- =====================================================
+     FAMOUS PLACES CITY SELECTOR
+===================================================== -->
 
+<div class="famous-places-overlay" id="famousPlacesPopup">
+
+    <div class="famous-places-modal">
+
+        <!-- CLOSE BUTTON -->
+        <button
+            type="button"
+            class="close-famous-places"
+            onclick="closeFamousPlaces()"
+        >
+            &times;
+        </button>
+
+
+        <!-- HEADER -->
+        <div class="famous-places-header">
+
+            <span class="famous-places-tag">
+                📍 EXPLORE DESTINATIONS
+            </span>
+
+            <h2>
+                Famous Places
+            </h2>
+
+            <p>
+                Select a city to explore its famous tourist spots.
+            </p>
+
+        </div>
+
+
+        <!-- CITY SELECT -->
+        <div class="city-select-group">
+
+            <label for="citySelector">
+                Select City
+            </label>
+
+            <select
+                id="citySelector"
+                onchange="showFamousPlaces()"
+            >
+
+                <option value="">
+                    -- Select a City --
+                </option>
+
+                <option value="mahabaleshwar">
+                    Mahabaleshwar
+                </option>
+
+                <option value="lonavala">
+                    Lonavala & Khandala
+                </option>
+
+                <option value="pune">
+                    Pune
+                </option>
+
+                <option value="ujjain">
+                    Ujjain
+                </option>
+
+                <option value="bhimashankar">
+                    Bhimashankar
+                </option>
+
+                <option value="trimbakeshwar">
+                    Trimbakeshwar
+                </option>
+
+                <option value="akkalkot">
+                    Akkalkot
+                </option>
+
+                <option value="kolhapur">
+                    Kolhapur
+                </option>
+
+                <option value="sambhajinagar">
+                    Sambhaji Nagar
+                </option>
+
+                <option value="goa">
+                    Goa
+                </option>
+
+                <option value="agra">
+                    Agra
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- FAMOUS PLACES RESULT -->
+
+        <div
+            class="famous-places-result"
+            id="famousPlacesResult"
+        >
+
+            <p class="select-city-message">
+                👆 Please select a city to view famous places.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
 
 <!-- =====================================================
      HEADER
@@ -133,6 +266,7 @@
         Book Now
     </button>
 
+ 
 </article>
 
 

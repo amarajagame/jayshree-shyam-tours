@@ -1,0 +1,624 @@
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #071a2d;
+
+    color: #ffffff;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.maha-navbar {
+    width: 100%;
+
+    background: #061525;
+
+    border-bottom: 1px solid
+        rgba(212, 175, 55, 0.20);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+}
+
+.navbar-inner {
+    width: min(1180px, 92%);
+
+    min-height: 72px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.brand {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-weight: 700;
+}
+
+.brand-icon {
+    font-size: 25px;
+}
+
+.brand-name {
+    font-size: 16px;
+}
+
+.back-btn {
+    padding: 9px 17px;
+
+    border: 1px solid #d4af37;
+
+    border-radius: 8px;
+
+    color: #d4af37;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    transition: 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #d4af37;
+
+    color: #071a2d;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.maha-hero {
+    min-height: 560px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            rgba(7, 26, 45, 0.72),
+            rgba(7, 26, 45, 0.88)
+        ),
+        url("../images/mahabaleshwar/venna-lake.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+}
+
+.hero-overlay {
+    width: min(850px, 90%);
+
+    padding: 60px 20px;
+}
+
+.hero-tag {
+    color: #d4af37;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.hero-overlay h1 {
+    margin-top: 15px;
+
+    font-size: clamp(42px, 7vw, 76px);
+
+    line-height: 1.1;
+}
+
+.hero-overlay h1 span {
+    color: #d4af37;
+}
+
+.hero-overlay p {
+    max-width: 650px;
+
+    margin: 22px auto 30px;
+
+    color: #d5deea;
+
+    font-size: 18px;
+}
+
+.hero-btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 50px;
+
+    padding: 13px 25px;
+
+    border-radius: 10px;
+
+    background: #d4af37;
+
+    color: #071a2d;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    transition: 0.3s ease;
+}
+
+.hero-btn:hover {
+    background: #f0cf63;
+
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   SECTION
+===================================================== */
+
+.intro-section,
+.places-section,
+.why-section {
+    width: min(1180px, 92%);
+
+    margin: auto;
+}
+
+.intro-section {
+    padding: 90px 0 60px;
+
+    text-align: center;
+}
+
+.section-heading {
+    text-align: center;
+
+    margin-bottom: 45px;
+}
+
+.section-heading > span {
+    color: #d4af37;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    margin-top: 8px;
+
+    color: #ffffff;
+
+    font-size: clamp(28px, 4vw, 42px);
+
+    line-height: 1.2;
+}
+
+.section-heading p {
+    margin-top: 10px;
+
+    color: #aebdce;
+}
+
+.intro-content {
+    max-width: 850px;
+
+    margin: auto;
+}
+
+.intro-content p {
+    margin-bottom: 14px;
+
+    color: #cbd5e1;
+
+    font-size: 16px;
+}
+
+
+/* =====================================================
+   PLACES
+===================================================== */
+
+.places-section {
+    padding: 50px 0 90px;
+}
+
+.places-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.place-card {
+    overflow: hidden;
+
+    background: #0b2238;
+
+    border: 1px solid
+        rgba(255, 255, 255, 0.08);
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 12px 35px
+        rgba(0, 0, 0, 0.20);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.place-card:hover {
+    transform: translateY(-7px);
+
+    border-color:
+        rgba(212, 175, 55, 0.60);
+}
+
+.place-image {
+    width: 100%;
+
+    height: 230px;
+
+    overflow: hidden;
+}
+
+.place-image img {
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+.place-card:hover .place-image img {
+    transform: scale(1.06);
+}
+
+.place-content {
+    position: relative;
+
+    padding: 23px;
+}
+
+.place-number {
+    color: #d4af37;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.place-content h3 {
+    margin-top: 6px;
+
+    font-size: 22px;
+}
+
+.place-content p {
+    margin-top: 9px;
+
+    color: #aebdce;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   WHY CHOOSE US
+===================================================== */
+
+.why-section {
+    padding: 20px 0 90px;
+}
+
+.why-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+.why-card {
+    padding: 28px 20px;
+
+    text-align: center;
+
+    background: #0b2238;
+
+    border: 1px solid
+        rgba(255, 255, 255, 0.07);
+
+    border-radius: 14px;
+}
+
+.why-icon {
+    font-size: 32px;
+
+    margin-bottom: 12px;
+}
+
+.why-card h3 {
+    font-size: 18px;
+}
+
+.why-card p {
+    margin-top: 8px;
+
+    color: #aebdce;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   CTA
+===================================================== */
+
+.cta-section {
+    padding: 80px 20px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0b2238,
+            #071a2d
+        );
+
+    border-top:
+        1px solid
+        rgba(212, 175, 55, 0.15);
+
+    border-bottom:
+        1px solid
+        rgba(212, 175, 55, 0.15);
+}
+
+.cta-section > span {
+    color: #d4af37;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.cta-section h2 {
+    margin-top: 10px;
+
+    font-size: clamp(28px, 5vw, 44px);
+}
+
+.cta-section p {
+    margin: 10px 0 25px;
+
+    color: #aebdce;
+}
+
+.cta-btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 13px 27px;
+
+    border-radius: 10px;
+
+    background: #d4af37;
+
+    color: #071a2d;
+
+    text-decoration: none;
+
+    font-weight: 700;
+}
+
+.cta-btn:hover {
+    background: #f0cf63;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+    padding: 45px 20px;
+
+    text-align: center;
+
+    background: #061525;
+}
+
+.footer h3 {
+    font-size: 20px;
+}
+
+.footer p {
+    margin-top: 6px;
+
+    color: #aebdce;
+}
+
+.footer-phone {
+    margin-top: 12px;
+
+    color: #d4af37;
+
+    font-weight: 700;
+}
+
+.footer a {
+    display: inline-block;
+
+    margin-top: 18px;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 14px;
+}
+
+.footer a:hover {
+    color: #d4af37;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 950px) {
+
+    .places-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .why-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .navbar-inner {
+        min-height: 64px;
+    }
+
+    .brand-name {
+        font-size: 13px;
+    }
+
+    .brand-icon {
+        font-size: 21px;
+    }
+
+    .back-btn {
+        padding: 8px 11px;
+
+        font-size: 12px;
+    }
+
+    .maha-hero {
+        min-height: 480px;
+    }
+
+    .hero-overlay {
+        padding: 45px 15px;
+    }
+
+    .hero-overlay p {
+        font-size: 15px;
+    }
+
+    .places-grid {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .why-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .place-image {
+        height: 220px;
+    }
+
+    .intro-section {
+        padding-top: 65px;
+    }
+
+    .places-section {
+        padding-bottom: 65px;
+    }
+
+    .why-section {
+        padding-bottom: 65px;
+    }
+
+    .cta-section {
+        padding: 65px 20px;
+    }
+
+}

@@ -283,3 +283,9 @@ def pamphlets(request):
         request,
         "myapp/pamphlets.html"
     )
+
+def mahabaleshwar(request):
+    return render(
+        request,
+        "myapp/mahabaleshwar.html"
+    )
