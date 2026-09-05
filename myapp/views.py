@@ -7,7 +7,12 @@ from django.http import JsonResponse
 from django.shortcuts import redirect
 from urllib.parse import quote
 from .models import IndexBooking
-from django.core.mail import send_mail
+
+import os
+import requests
+
+
+
 
 
 def home(request):
@@ -22,18 +27,32 @@ def whatsapp_chat(request):
     url = f"https://wa.me/{phone}?text={quote(message)}"
     return redirect(url)
 
+def send_brevo_email(subject, message, to_email):
+    url = "https://api.brevo.com/v3/smtp/email"
+
+    headers = {
+        "accept": "application/json",
+        "api-key": os.environ.get("BREVO_API_KEY"),
+        "content-type": "application/json",
+    }
+
+    data = {
+        "sender": {
+            "name": "Jayshree Shyam Tours & Travels",
+            "email": "amarajagame1510@gmail.com"
+        },
+        "to": [{"email": to_email}],
+        "subject": subject,
+        "textContent": message,
+    }
+
+    response = requests.post(url, json=data, headers=headers)
+    return response
 
 
-# =====================================================
-# INDEX PAGE BOOKING
-# =====================================================
 def index_booking_whatsapp(request):
 
     if request.method == "POST":
-
-        # =========================
-        # GET FORM DATA
-        # =========================
 
         full_name = request.POST.get("full_name")
         phone = request.POST.get("phone")
@@ -45,11 +64,6 @@ def index_booking_whatsapp(request):
         passengers = request.POST.get("passengers")
         route = request.POST.get("route")
         message = request.POST.get("message")
-
-
-        # =========================
-        # SAVE IN INDEX BOOKING TABLE
-        # =========================
 
         IndexBooking.objects.create(
             full_name=full_name,
@@ -64,19 +78,12 @@ def index_booking_whatsapp(request):
             message=message,
         )
 
-
-        # =====================================================
-        # EMAIL 1 — ADMIN / OWNER
-        # =====================================================
-
         admin_email_subject = "New Tour Booking Received"
 
         admin_email_message = f"""
 NEW TOUR BOOKING
 
-━━━━━━━━━━━━━━━━━━
 Customer Details
-━━━━━━━━━━━━━━━━━━
 
 Name: {full_name}
 Phone: {phone}
@@ -99,23 +106,14 @@ Route:
 Additional Message:
 {message if message else "None"}
 
-━━━━━━━━━━━━━━━━━━
-
 Jayshree Shyam Tours & Travels
 """
 
-        send_mail(
+        send_brevo_email(
             admin_email_subject,
             admin_email_message,
-            None,
-            ["amarajagame1510@gmail.com"],
-            fail_silently=False,
+            "amarajagame1510@gmail.com"
         )
-
-
-        # =====================================================
-        # EMAIL 2 — CUSTOMER / USER
-        # =====================================================
 
         customer_email_subject = (
             "Booking Received - Jayshree Shyam Tours & Travels"
@@ -128,9 +126,7 @@ Thank you for choosing Jayshree Shyam Tours & Travels.
 
 Your booking request has been received successfully.
 
-━━━━━━━━━━━━━━━━━━
 Booking Details
-━━━━━━━━━━━━━━━━━━
 
 Travel Date: {booking_date}
 Passengers: {passengers}
@@ -141,8 +137,6 @@ Pickup Location:
 
 Destination:
 {destination}
-
-━━━━━━━━━━━━━━━━━━
 
 Our team will review your booking details and contact you shortly.
 
@@ -155,25 +149,16 @@ Regards,
 Jayshree Shyam Tours & Travels
 """
 
-        send_mail(
+        send_brevo_email(
             customer_email_subject,
             customer_email_message,
-            None,
-            [email],
-            fail_silently=False,
+            email
         )
-
-
-        # =========================
-        # WHATSAPP MESSAGE
-        # =========================
 
         whatsapp_message = f"""
 *NEW BOOKING*
 
-━━━━━━━━━━━━━━━━━━
 *Customer Details*
-━━━━━━━━━━━━━━━━━━
 
 Name: {full_name}
 Phone: {phone}
@@ -196,51 +181,22 @@ Route:
 Additional Message:
 {message if message else "None"}
 
-━━━━━━━━━━━━━━━━━━
-
 Jayshree Shyam Tours & Travels
 """
 
-
-        # =========================
-        # OWNER WHATSAPP NUMBER
-        # =========================
-
         whatsapp_number = "9527825967"
-
-
-        # =========================
-        # CREATE WHATSAPP URL
-        # =========================
 
         whatsapp_url = (
             f"https://wa.me/{whatsapp_number}"
             f"?text={quote(whatsapp_message)}"
         )
 
-
-        # =========================
-        # SEND WHATSAPP URL
-        # =========================
-
         return redirect(whatsapp_url)
 
-
-    # =========================
-    # IF NOT POST
-    # =========================
-
     return redirect("home")
-
-   
-    
 def booking_whatsapp(request):
 
     if request.method == "POST":
-
-        # =========================
-        # GET FORM DATA
-        # =========================
 
         full_name = request.POST.get("full_name")
         phone = request.POST.get("phone")
@@ -252,76 +208,35 @@ def booking_whatsapp(request):
         destination = request.POST.get("destination")
         message = request.POST.get("message")
 
-
-        # =========================
-        # TOUR DATA
-        # =========================
-
-        tour_name = request.POST.get(
-            "tour_name",
-            "N/A"
-        )
-
-        duration = request.POST.get(
-            "duration",
-            "N/A"
-        )
-
-        price = request.POST.get(
-            "price",
-            "N/A"
-        )
-
-
-        # =========================
-        # SAVE BOOKING
-        # =========================
+        tour_name = request.POST.get("tour_name", "N/A")
+        duration = request.POST.get("duration", "N/A")
+        price = request.POST.get("price", "N/A")
 
         booking = Booking.objects.create(
-
             full_name=full_name,
-
             phone=phone,
-
             email=email,
-
             pickup=pickup,
-
             destination=tour_name,
-
             booking_date=travel_date,
-
             trip_type=trip_type,
-
             passengers=passengers,
-
             route=duration,
-
             message=message,
-
         )
-
-
-        # =====================================================
-        # EMAIL 1 — ADMIN / OWNER
-        # =====================================================
 
         admin_email_subject = "New Tour Booking Received"
 
         admin_email_message = f"""
 NEW TOUR BOOKING
 
-━━━━━━━━━━━━━━━━━━
 TOUR DETAILS
-━━━━━━━━━━━━━━━━━━
 
 Tour: {tour_name}
 Duration: {duration}
 Price: {price}
 
-━━━━━━━━━━━━━━━━━━
 CUSTOMER DETAILS
-━━━━━━━━━━━━━━━━━━
 
 Name: {full_name}
 Phone: {phone}
@@ -341,23 +256,14 @@ Destination:
 Additional Message:
 {message if message else "None"}
 
-━━━━━━━━━━━━━━━━━━
-
 Jayshree Shyam Tours & Travels
 """
 
-        send_mail(
+        send_brevo_email(
             admin_email_subject,
             admin_email_message,
-            None,
-            ["amarajagame1510@gmail.com"],
-            fail_silently=False,
+            "amarajagame1510@gmail.com"
         )
-
-
-        # =====================================================
-        # EMAIL 2 — CUSTOMER / USER
-        # =====================================================
 
         customer_email_subject = (
             "Booking Received - Jayshree Shyam Tours & Travels"
@@ -370,9 +276,7 @@ Thank you for choosing Jayshree Shyam Tours & Travels.
 
 Your booking request has been received successfully.
 
-━━━━━━━━━━━━━━━━━━
 BOOKING DETAILS
-━━━━━━━━━━━━━━━━━━
 
 Tour: {tour_name}
 Duration: {duration}
@@ -387,8 +291,6 @@ Pickup Location:
 
 Destination:
 {destination}
-
-━━━━━━━━━━━━━━━━━━
 
 Our team will review your booking details
 and contact you shortly.
@@ -403,34 +305,22 @@ Regards,
 Jayshree Shyam Tours & Travels
 """
 
-
-        send_mail(
+        send_brevo_email(
             customer_email_subject,
             customer_email_message,
-            None,
-            [email],
-            fail_silently=False,
+            email
         )
-
-
-        # =========================
-        # WHATSAPP MESSAGE
-        # =========================
 
         whatsapp_message = f"""
 *NEW BOOKING*
 
-━━━━━━━━━━━━━━━━━━
 *Tour Details*
-━━━━━━━━━━━━━━━━━━
 
 Tour: {tour_name}
 Duration: {duration}
 Price: {price}
 
-━━━━━━━━━━━━━━━━━━
 *Customer Details*
-━━━━━━━━━━━━━━━━━━
 
 Name: {full_name}
 Phone: {phone}
@@ -450,59 +340,22 @@ Destination:
 Additional Message:
 {message if message else "None"}
 
-━━━━━━━━━━━━━━━━━━
-
 Jayshree Shyam Tours & Travels
 """
 
-
-        # =========================
-        # OWNER WHATSAPP NUMBER
-        # =========================
-
         whatsapp_number = "919527825967"
-
-
-        # =========================
-        # CREATE WHATSAPP URL
-        # =========================
 
         whatsapp_url = (
             f"https://wa.me/{whatsapp_number}"
             f"?text={quote(whatsapp_message)}"
         )
 
-
-        # =========================
-        # SEND WHATSAPP URL TO JS
-        # =========================
-
         return JsonResponse({
             "success": True,
             "whatsapp_url": whatsapp_url
         })
 
-
-    # =========================
-    # INVALID REQUEST
-    # =========================
-
     return JsonResponse({
         "success": False,
         "message": "Invalid request"
     }, status=400)
-
-def pamphlets(request):
-    return render(
-        request,
-        "myapp/pamphlets.html"
-    )
-
-def mahabaleshwar(request):
-    return render(
-        request,
-        "myapp/mahabaleshwar.html"
-    )
-
-
-

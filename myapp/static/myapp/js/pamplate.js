@@ -644,7 +644,7 @@ const famousPlacesData = {
         title: "📍 Famous Places in Trimbakeshwar",
 
         places: [
-            { name: "Trimbakeshwar Temple", image: "trimbakeshwartemple.jpg", description: "A famous Jyotirlinga temple and important pilgrimage destination." },
+           
             { name: "Brahmagiri Hills", image: "brahmagiri.jpg", description: "Beautiful hills associated with the origin of the Godavari River." },
             { name: "Kushavarta Kund", image: "kushavarta.jpg", description: "A sacred water tank located near the Trimbakeshwar Temple." },
             { name: "Gangadwar", image: "gangadwar.jpg", description: "A spiritual destination located in the Brahmagiri hill region." },
