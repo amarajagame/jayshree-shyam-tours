@@ -5,3 +5,4 @@ psycopg2-binary
 dj-database-url
 sib-api-v3-sdk
 requests
+python-dotenv
