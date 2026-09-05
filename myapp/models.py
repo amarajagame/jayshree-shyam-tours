@@ -12,6 +12,7 @@ class IndexBooking(models.Model):
     full_name = models.CharField(max_length=100)
 
     phone = models.CharField(max_length=15)
+    email = models.EmailField(max_length=254)
 
     pickup = models.CharField(max_length=100)
 
@@ -51,12 +52,13 @@ class IndexBooking(models.Model):
 # =====================================================
 
 
-
 class Booking(models.Model):
 
     full_name = models.CharField(max_length=100)
 
     phone = models.CharField(max_length=15)
+
+    email = models.EmailField()
 
     pickup = models.CharField(max_length=100)
 
@@ -86,7 +88,6 @@ class Booking(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True
     )
-    
 
-def __str__(self):
+    def __str__(self):
         return self.full_name

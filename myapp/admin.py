@@ -15,6 +15,7 @@ class IndexBookingAdmin(admin.ModelAdmin):
     list_display = (
         "full_name",
         "phone",
+        "email",
         "booking_date",
         "pickup",
         "destination",
@@ -32,6 +33,7 @@ class IndexBookingAdmin(admin.ModelAdmin):
     search_fields = (
         "full_name",
         "phone",
+        "email",
         "pickup",
         "destination",
     )
