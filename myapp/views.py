@@ -16,30 +16,60 @@ def whatsapp_chat(request):
     url = f"https://wa.me/{phone}?text={quote(message)}"
     return redirect(url)
 
-
 def send_brevo_email(subject, message, to_email):
+
+    brevo_api_key = os.environ.get("BREVO_API_KEY")
+
+    if not brevo_api_key:
+        print("ERROR: BREVO_API_KEY is not configured.")
+        return None
+
+    if not to_email:
+        print("ERROR: Recipient email is missing.")
+        return None
+
     url = "https://api.brevo.com/v3/smtp/email"
 
     headers = {
         "accept": "application/json",
-        "api-key": os.environ.get("BREVO_API_KEY"),
+        "api-key": brevo_api_key,
         "content-type": "application/json",
     }
 
     data = {
         "sender": {
             "name": "Jayshree Shyam Tours & Travels",
-            "email": "amarajagame1510@gmail.com"
+            "email": os.environ.get(
+                "BREVO_SENDER_EMAIL",
+                "amarajagame1510@gmail.com"
+            ),
         },
-        "to": [{"email": to_email}],
+        "to": [
+            {
+                "email": to_email
+            }
+        ],
         "subject": subject,
         "textContent": message,
     }
 
-    response = requests.post(url, json=data, headers=headers)
-    return response
+    try:
+        response = requests.post(
+            url,
+            json=data,
+            headers=headers,
+            timeout=10
+        )
 
+        print("Brevo response:", response.status_code)
+        print("Brevo response:", response.text)
 
+        return response
+
+    except requests.RequestException as e:
+        print("Brevo email error:", e)
+        return None
+    
 def index_booking_whatsapp(request):
 
     if request.method == "POST":
