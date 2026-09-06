@@ -29,9 +29,9 @@ SECRET_KEY = os.environ.get(
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    "jayshree.shop",
-    "www.jayshree.shop",
-    ".onrender.com",
+    'jayshreshyam.shop', 
+    'www.jayshreshyam.shop',
+    '.onrender.com'
     "127.0.0.1",
     "localhost",
 ]
