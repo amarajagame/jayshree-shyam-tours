@@ -43,7 +43,7 @@ ALLOWED_HOSTS = [
 
 INSTALLED_APPS = [
     "myapp",
-
+    'django.contrib.sitemaps',
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
