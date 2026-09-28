@@ -1,4 +1,3 @@
-
 """
 Django settings for jayshreeshyam_tour_project project.
 
@@ -26,12 +25,17 @@ SECRET_KEY = os.environ.get(
     "django-insecure-development-only-key"
 )
 
-DEBUG = False
+# Local development:
+# .env -> DJANGO_DEBUG=True
+#
+# Render/Production:
+# DJANGO_DEBUG should be False or not set.
+DEBUG = os.environ.get("DJANGO_DEBUG", "False").lower() == "true"
 
 ALLOWED_HOSTS = [
-    'jayshreshyam.shop', 
-    'www.jayshreshyam.shop',
-    '.onrender.com'
+    "jayshreshyam.shop",
+    "www.jayshreshyam.shop",
+    ".onrender.com",
     "127.0.0.1",
     "localhost",
 ]
@@ -43,7 +47,7 @@ ALLOWED_HOSTS = [
 
 INSTALLED_APPS = [
     "myapp",
-    'django.contrib.sitemaps',
+    "django.contrib.sitemaps",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -107,9 +111,15 @@ TEMPLATES = [
 # DATABASE
 # ============================================================
 
+# Local PC:
+# Uses SQLite when DATABASE_URL is not available.
+#
+# Render:
+# Uses Render PostgreSQL through DATABASE_URL.
+
 DATABASES = {
     "default": dj_database_url.config(
-        default=os.environ.get("DATABASE_URL")
+        default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}"
     )
 }
 
@@ -154,12 +164,16 @@ USE_TZ = True
 # ============================================================
 # STATIC FILES
 # ============================================================
+# STATIC FILES
+# ============================================================
 
 STATIC_URL = "/static/"
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-
+STATICFILES_DIRS = [
+    BASE_DIR / "myapp" / "static",
+]
 # ============================================================
 # BREVO EMAIL
 # ============================================================
@@ -182,4 +196,3 @@ BREVO_SENDER_NAME = "Jayshree Shyam Tours & Travels"
 # ============================================================
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-

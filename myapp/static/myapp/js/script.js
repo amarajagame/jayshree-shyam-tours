@@ -708,3 +708,244 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+
+/* =========================================================
+   PICKUP / DESTINATION LOCATION AUTOCOMPLETE
+   No Google API
+   No API key
+   No billing in index.html file in booking in whatsapp
+   
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const locations = [
+        {
+            name: "Pune, Maharashtra",
+            keywords: ["pune", "poona"]
+        },
+        {
+            name: "Pune Railway Station",
+            keywords: ["pune railway", "pune station", "railway station"]
+        },
+        {
+            name: "Pune Airport (PNQ)",
+            keywords: ["pune airport", "airport", "pnq"]
+        },
+        {
+            name: "Pune Station Road",
+            keywords: ["pune station road", "station road"]
+        },
+        {
+            name: "Shivajinagar, Pune",
+            keywords: ["shivajinagar", "shivaji nagar"]
+        },
+        {
+            name: "Hinjawadi, Pune",
+            keywords: ["hinjawadi", "hinjewadi"]
+        },
+        {
+            name: "Kothrud, Pune",
+            keywords: ["kothrud"]
+        },
+        {
+            name: "Hadapsar, Pune",
+            keywords: ["hadapsar"]
+        },
+        {
+            name: "Wakad, Pune",
+            keywords: ["wakad"]
+        },
+        {
+            name: "Pimpri-Chinchwad",
+            keywords: ["pimpri", "chinchwad", "pcmc"]
+        },
+        {
+            name: "Mumbai, Maharashtra",
+            keywords: ["mumbai", "bombay"]
+        },
+        {
+            name: "Mumbai Airport",
+            keywords: ["mumbai airport"]
+        },
+        {
+            name: "Nashik, Maharashtra",
+            keywords: ["nashik", "nasik"]
+        },
+        {
+            name: "Shirdi, Maharashtra",
+            keywords: ["shirdi"]
+        },
+        {
+            name: "Solapur, Maharashtra",
+            keywords: ["solapur", "sholapur"]
+        },
+        {
+            name: "Satara, Maharashtra",
+            keywords: ["satara"]
+        },
+        {
+            name: "Kolhapur, Maharashtra",
+            keywords: ["kolhapur"]
+        },
+        {
+            name: "Sangli, Maharashtra",
+            keywords: ["sangli"]
+        },
+        {
+            name: "Goa",
+            keywords: ["goa"]
+        }
+    ];
+
+
+    function setupLocationAutocomplete(input) {
+
+        if (!input || input.dataset.autocompleteReady === "true") {
+            return;
+        }
+
+        input.dataset.autocompleteReady = "true";
+
+        const wrapper = document.createElement("div");
+        wrapper.className = "location-autocomplete-wrapper";
+
+        input.parentNode.insertBefore(wrapper, input);
+        wrapper.appendChild(input);
+
+        const suggestionBox = document.createElement("div");
+
+        suggestionBox.className = "location-suggestions";
+        suggestionBox.setAttribute("role", "listbox");
+
+        wrapper.appendChild(suggestionBox);
+
+
+        function hideSuggestions() {
+            suggestionBox.innerHTML = "";
+            suggestionBox.classList.remove("show");
+        }
+
+
+        function showSuggestions(value) {
+
+            const search = value.trim().toLowerCase();
+
+            suggestionBox.innerHTML = "";
+
+            if (search.length < 2) {
+                hideSuggestions();
+                return;
+            }
+
+
+            const matches = locations.filter(function (location) {
+
+                const fullName = location.name.toLowerCase();
+
+                const keywordMatch = location.keywords.some(function (keyword) {
+                    return keyword.toLowerCase().includes(search);
+                });
+
+                return (
+                    fullName.includes(search) ||
+                    keywordMatch
+                );
+
+            }).slice(0, 6);
+
+
+            if (matches.length === 0) {
+                hideSuggestions();
+                return;
+            }
+
+
+            matches.forEach(function (location) {
+
+                const button = document.createElement("button");
+
+                button.type = "button";
+                button.className = "location-suggestion-item";
+                button.setAttribute("role", "option");
+
+                button.innerHTML = `
+                    <span class="location-suggestion-icon">📍</span>
+                    <span class="location-suggestion-text">
+                        ${location.name}
+                    </span>
+                `;
+
+
+                button.addEventListener("mousedown", function (event) {
+
+                    event.preventDefault();
+
+                    input.value = location.name;
+
+                    hideSuggestions();
+
+                    input.focus();
+
+                });
+
+
+                suggestionBox.appendChild(button);
+
+            });
+
+
+            suggestionBox.classList.add("show");
+        }
+
+
+        input.addEventListener("input", function () {
+
+            showSuggestions(input.value);
+
+        });
+
+
+        input.addEventListener("focus", function () {
+
+            if (input.value.trim().length >= 2) {
+                showSuggestions(input.value);
+            }
+
+        });
+
+
+        input.addEventListener("keydown", function (event) {
+
+            if (event.key === "Escape") {
+                hideSuggestions();
+            }
+
+        });
+
+
+        document.addEventListener("click", function (event) {
+
+            if (!wrapper.contains(event.target)) {
+                hideSuggestions();
+            }
+
+        });
+
+    }
+
+
+    /* Pickup Location */
+
+    document
+        .querySelectorAll('input[name="pickup"]')
+        .forEach(setupLocationAutocomplete);
+
+
+    /* Destination Location */
+
+    document
+        .querySelectorAll('input[name="destination"]')
+        .forEach(setupLocationAutocomplete);
+
+});

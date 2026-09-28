@@ -917,7 +917,253 @@ section { padding: 5rem 0; }
 .btn-whatsapp:active {
   transform: scale(.98);
 }
+.booking-section {
 
+  padding: 100px 20px;
+
+  background: linear-gradient(135deg, #fff8ef, #fff, #f5f7ff);
+
+}
+
+.booking-section .container {
+
+  max-width: 700px;
+
+  margin: auto;
+
+}
+
+.booking-form {
+
+  margin-top: 40px;
+
+  background: #ffffff;
+
+  padding: 40px;
+
+  border-radius: 25px;
+
+  box-shadow: 0 20px 45px rgba(0,0,0,.12);
+
+  border: 1px solid rgba(255,255,255,.4);
+
+}
+
+.form-group {
+
+  margin-bottom: 22px;
+
+}
+
+.booking-form input,
+
+.booking-form textarea {
+
+  width: 100%;
+
+  padding: 16px 20px;
+
+  font-size: 16px;
+
+  font-family: 'Poppins', sans-serif;
+
+  border: 2px solid #ececec;
+
+  border-radius: 15px;
+
+  outline: none;
+
+  transition: .3s;
+
+  background: #fafafa;
+
+}
+
+.booking-form textarea {
+
+  resize: none;
+
+}
+
+.booking-form input:focus,
+
+.booking-form textarea:focus {
+
+  border-color: #ff7b00;
+
+  background: #fff;
+
+  box-shadow: 0 0 15px rgba(255,123,0,.25);
+
+}
+
+.btn-whatsapp {
+
+  width: 100%;
+
+  padding: 18px;
+
+  border: none;
+
+  border-radius: 15px;
+
+  cursor: pointer;
+
+  font-size: 18px;
+
+  font-weight: 600;
+
+  color: #fff;
+
+  background: linear-gradient(135deg, #25D366, #128C7E);
+
+  transition: .35s;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 10px;
+
+}
+
+.btn-whatsapp:hover {
+
+  transform: translateY(-4px);
+
+  box-shadow: 0 15px 35px rgba(37,211,102,.35);
+
+}
+
+.btn-whatsapp:active {
+
+  transform: scale(.98);
+
+}
+
+
+/* =========================================================
+   PICKUP / DESTINATION AUTOCOMPLETE
+   ========================================================= */
+
+.location-autocomplete-wrapper {
+
+  position: relative;
+
+  width: 100%;
+
+}
+
+
+.location-suggestions {
+
+  position: absolute;
+
+  top: calc(100% + 5px);
+
+  left: 0;
+
+  right: 0;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 12px;
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+
+  overflow: hidden;
+
+  z-index: 9999;
+
+  display: none;
+
+}
+
+
+.location-suggestions.show {
+
+  display: block;
+
+}
+
+
+.location-suggestion-item {
+
+  width: 100%;
+
+  border: none;
+
+  background: #ffffff;
+
+  padding: 13px 15px;
+
+  text-align: left;
+
+  font-family: 'Poppins', sans-serif;
+
+  font-size: 14px;
+
+  color: #172033;
+
+  cursor: pointer;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  transition: background .15s ease;
+
+}
+
+
+.location-suggestion-item:hover,
+
+.location-suggestion-item:focus {
+
+  background: #fff4e8;
+
+  outline: none;
+
+}
+
+
+.location-suggestion-icon {
+
+  font-size: 16px;
+
+  flex-shrink: 0;
+
+}
+
+
+.location-suggestion-text {
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+}
+
+
+@media (max-width: 600px) {
+
+  .location-suggestion-item {
+
+    padding: 14px;
+
+    font-size: 13px;
+
+  }
+
+}
 /* ============================================
    FOOTER - FULL RESPONSIVE
 ============================================ */
